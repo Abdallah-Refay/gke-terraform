@@ -1,10 +1,10 @@
-resource "google_container_cluster" "tf_gke" {
-  name                     = "tf-gke-cluster"
+resource "google_container_cluster" "gke" {
+  name                     = var.gke_cluster_name
   location                 = var.region
   remove_default_node_pool = true
   initial_node_count       = 1
-  network                  = google_compute_network.tf_vpc.self_link
-  subnetwork               = google_compute_subnetwork.restricted.self_link
+  network                  = var.vpc_self_link
+  subnetwork               = var.restricted_subnet_self_link
 
   node_locations = [
     "${var.region}-b"
@@ -12,13 +12,12 @@ resource "google_container_cluster" "tf_gke" {
   master_authorized_networks_config {
 
     cidr_blocks {
-      cidr_block   = google_compute_subnetwork.management.ip_cidr_range
+      cidr_block   = var.management_subnet_cidr
       display_name = "managment-cidr"
     }
 
   }
-  ip_allocation_policy {
-  }
+  ip_allocation_policy {}
 
   private_cluster_config {
     enable_private_nodes    = true
@@ -27,11 +26,11 @@ resource "google_container_cluster" "tf_gke" {
   }
 }
 
-resource "google_container_node_pool" "tf_node_pool" {
-  name       = "tf-node-pool"
+resource "google_container_node_pool" "gke_node_pool" {
+  name       = "${google_container_cluster.gke.name}-node-pool"
   location   = var.region
-  cluster    = google_container_cluster.tf_gke.name
-  node_count = 2
+  cluster    = google_container_cluster.gke.name
+  node_count = var.gke_node_count
 
   node_config {
     preemptible  = true

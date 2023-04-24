@@ -1,11 +1,6 @@
-variable "gke_cluster_name" {
+variable "vpc_name" {
   type        = string
-  description = "name for gke cluster"
-}
-
-variable "project_id" {
-  type        = string
-  description = "gcp project id"
+  description = "vpc name"
 }
 
 variable "region" {
@@ -16,11 +11,14 @@ variable "region" {
 variable "management_subnet_cidr" {
   type        = string
   description = "cidr for management subnet that contains the management vm instance"
-  default     = "10.0.1.0/24"
 }
 
 variable "restricted_subnet_cidr" {
   type        = string
   description = "cidr for restricted subnet that contains the gke cluster"
-  default     = "10.0.2.0/24"
+}
+
+variable "project_id" {
+  type        = string
+  description = "gcp project id"
 }
