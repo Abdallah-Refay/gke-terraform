@@ -1,6 +1,6 @@
 resource "google_service_account" "master" {
-  account_id   = "master"
-  display_name = "master-sa"
+  account_id   = "${google_container_cluster.gke.name}-master"
+  display_name = "${google_container_cluster.gke.name}-master-sa"
 }
 
 resource "google_project_iam_member" "master_container_admin_bind" {
@@ -10,8 +10,8 @@ resource "google_project_iam_member" "master_container_admin_bind" {
 }
 
 resource "google_service_account" "worker" {
-  account_id   = "worker"
-  display_name = "worker-sa"
+  account_id   = "${google_container_cluster.gke.name}-worker"
+  display_name = "${google_container_cluster.gke.name}-worker-sa"
 }
 
 resource "google_project_iam_member" "worker_object_viewer_bind" {
