@@ -14,6 +14,12 @@ variable "gke_node_count" {
   default     = 3
 }
 
+variable "gke_node_type" {
+  type        = string
+  description = "gke node pool instance type"
+  default     = "e2-small"
+}
+
 variable "region" {
   type        = string
   description = "gcp region"

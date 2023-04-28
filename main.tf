@@ -20,4 +20,6 @@ module "gke" {
   management_subnet_id        = module.vpc.management_subnet_id
   management_subnet_cidr      = module.vpc.management_subnet_cidr
   restricted_subnet_self_link = module.vpc.restricted_subnet_self_link
+  gke_node_count              = var.gke_node_count
+  gke_node_type               = var.gke_node_type
 }

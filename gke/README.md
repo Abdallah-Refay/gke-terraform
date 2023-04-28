@@ -37,6 +37,7 @@ No modules.
 |------|-------------|------|---------|:--------:|
 | <a name="input_gke_cluster_name"></a> [gke\_cluster\_name](#input\_gke\_cluster\_name) | name for gke cluster | `string` | n/a | yes |
 | <a name="input_gke_node_count"></a> [gke\_node\_count](#input\_gke\_node\_count) | gke cluster node count | `number` | `3` | no |
+| <a name="input_gke_node_type"></a> [gke\_node\_type](#input\_gke\_node\_type) | gke node pool instance type | `string` | `"e2-small"` | no |
 | <a name="input_management_subnet_cidr"></a> [management\_subnet\_cidr](#input\_management\_subnet\_cidr) | cidr for management subnet that contains the management vm instance | `string` | n/a | yes |
 | <a name="input_management_subnet_id"></a> [management\_subnet\_id](#input\_management\_subnet\_id) | id for management subnet that contains the management vm instance | `string` | n/a | yes |
 | <a name="input_project_id"></a> [project\_id](#input\_project\_id) | gcp project id | `string` | n/a | yes |

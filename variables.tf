@@ -24,3 +24,15 @@ variable "restricted_subnet_cidr" {
   description = "cidr for restricted subnet that contains the gke cluster"
   default     = "10.0.2.0/24"
 }
+
+variable "gke_node_count" {
+  type        = number
+  description = "gke cluster node count"
+  default     = 3
+}
+
+variable "gke_node_type" {
+  type        = string
+  description = "gke node pool instance type"
+  default     = "e2-small"
+}

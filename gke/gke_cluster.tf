@@ -34,7 +34,7 @@ resource "google_container_node_pool" "gke_node_pool" {
 
   node_config {
     preemptible  = true
-    machine_type = "e2-small"
+    machine_type = var.gke_node_type
 
     service_account = google_service_account.worker.email
     oauth_scopes = [

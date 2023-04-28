@@ -3,6 +3,11 @@ variable "vpc_name" {
   description = "vpc name"
 }
 
+variable "project_id" {
+  type        = string
+  description = "gcp project id"
+}
+
 variable "region" {
   type        = string
   description = "gcp region"
@@ -16,9 +21,4 @@ variable "management_subnet_cidr" {
 variable "restricted_subnet_cidr" {
   type        = string
   description = "cidr for restricted subnet that contains the gke cluster"
-}
-
-variable "project_id" {
-  type        = string
-  description = "gcp project id"
 }
