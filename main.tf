@@ -1,5 +1,5 @@
 locals {
-  gke_cluster_name = "${var.gke_cluster_name}-gke-cluster"
+  gke_cluster_name = "${var.gke_cluster_name}-gke"
 }
 
 module "vpc" {
@@ -22,4 +22,5 @@ module "gke" {
   restricted_subnet_self_link = module.vpc.restricted_subnet_self_link
   gke_node_count              = var.gke_node_count
   gke_node_type               = var.gke_node_type
+  gke_node_disk_size          = var.gke_node_disk_size
 }

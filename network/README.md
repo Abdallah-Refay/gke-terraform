@@ -1,5 +1,5 @@
 ## Summary
-this module creates the network setup for the gke cluster and the management vm.
+this module creates the network setup for the private gke cluster and the management vm.
 
 ## Requirements
 

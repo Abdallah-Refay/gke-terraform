@@ -46,3 +46,8 @@ variable "management_subnet_cidr" {
   description = "cidr for management subnet that contains the management vm instance"
 }
 
+variable "gke_node_disk_size" {
+  type        = number
+  default     = 20
+  description = "gke node disk size"
+}

@@ -36,3 +36,9 @@ variable "gke_node_type" {
   description = "gke node pool instance type"
   default     = "e2-small"
 }
+
+variable "gke_node_disk_size" {
+  type        = number
+  default     = 20
+  description = "gke node disk size"
+}
