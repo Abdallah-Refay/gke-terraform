@@ -26,8 +26,7 @@ resource "google_compute_instance" "management_vm" {
      
     # initiate gke cluster connection 
     echo "#!/usr/bin/env sh
-  gcloud container clusters get-credentials ${google_container_cluster.gke.name} --region=${var.region}" > gke_connection_init.sh
+gcloud container clusters get-credentials ${google_container_cluster.gke.name} --region=${var.region}" > gke_connection_init.sh
     chmod +x gke_connection_init.sh
-
   SCRIPT
 }
